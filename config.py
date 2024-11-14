@@ -8,3 +8,4 @@ class Config:
     self.learning_rate = 0.001
     self.data_dir = './data'
     self.model_dir = './models'
+    self.fig_dir = './figs'

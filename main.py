@@ -15,7 +15,7 @@ def main():
   parser.add_argument('--normalization', type=str, default=None, choices=[None, 'batch', 'layer'], help='Normalization method')
   parser.add_argument('--data_augmentation', action='store_true', help='Use data augmentation')
   parser.add_argument('--weight_decay', type=float, default=0.0, help='Weight decay (L2 regularization)')
-  parser.add_argument('--dropout_rate', type=float, default=0.5, help='Dropout rate')
+  parser.add_argument('--dropout_rate', type=float, default=0.0, help='Dropout rate')
   args = parser.parse_args()
 
   config = Config()
@@ -37,7 +37,7 @@ def main():
     train(model, config.device, train_loader, optimizer, criterion, epoch, train_losses)
     test(model, config.device, test_loader, criterion, test_accs)
 
-  plot_train_loss_and_test_acc(train_losses, test_accs, args)
+  plot_train_loss_and_test_acc(train_losses, test_accs, args, save_dir=config.fig_dir)
 
 if __name__ == '__main__':
     main()

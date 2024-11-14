@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import os
 from datetime import datetime
 
-def plot_train_loss_and_test_acc(train_losses, test_accs, args):
+def plot_train_loss_and_test_acc(train_losses, test_accs, args, save_dir):
 
   exp_name = f"{args.model}_{args.normalization if args.normalization else 'no_norm'}"
   if args.data_augmentation:
@@ -14,7 +14,7 @@ def plot_train_loss_and_test_acc(train_losses, test_accs, args):
   timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
   exp_name += f"_{timestamp}"
 
-  save_dir = os.path.join('./figs', args.model)
+  # save_dir = os.path.join('./figs', args.model)
   os.makedirs(save_dir, exist_ok=True)
 
   plt.figure(figsize=(12, 8))
